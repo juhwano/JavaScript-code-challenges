@@ -25,15 +25,13 @@ function findLongestSubstring(str) {
 
   for (let i = 0; i < str.length; i++) {
     let char = str[i];
+    //중복o
     if (seen[char]) {
-      console.log('s:', start);
-      console.log(seen[char]);
       start = Math.max(start, seen[char]);
     }
-    // index - beginning of substring + 1 (to include current in count)
     longest = Math.max(longest, i - start + 1);
-    // store the index of the next char so as to not double count
     seen[char] = i + 1;
   }
   return longest;
 }
+console.log(findLongestSubstring('rithmschool'));
